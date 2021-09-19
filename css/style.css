@@ -1,5 +1,7 @@
 html {
     scroll-behavior: smooth !important;
+    /* font-family: 'Great Vibes', cursive;
+    font-family: 'Open Sans', sans-serif; */
   }
   
   .site-nav {
@@ -8,7 +10,7 @@ html {
   
   .site-nav.in-body {
     background: rgb(36, 36, 36, 0.9);
-    animation: clear 1.25s forwards;
+    animation: slideUp 1.25s forwards;
     opacity: 0;
   }
   
@@ -33,7 +35,7 @@ html {
     background-position: bottom;
     opacity: 0;
     transform: translateY(300px) scale(1.2);
-    animation: clear 0.5s forwards;
+    animation: slideUp 0.5s forwards;
   }
   
   .site-nav .nav-link {
@@ -62,13 +64,13 @@ html {
   }
   
   .site-header .header-title {
-    animation: clear 0.8s 0.4s forwards;
+    animation: slideUp 0.8s 0.4s forwards;
     transform: translateY(10rem);
     opacity: 0;
   }
   
   .site-header .header-subtitle {
-    animation: clear 1s 0.7s forwards;
+    animation: slideUp 1s 0.7s forwards;
     transform: translateY(10rem);
     opacity: 0;
   }
@@ -76,7 +78,7 @@ html {
   .site-header .header-cue {
     position: absolute;
     bottom: 0;
-    animation: clear 0.5s 1.5s forwards;
+    animation: slideUp 0.5s 1.5s forwards;
     transform: translateY(2rem);
     z-index: 10;
     overflow: hidden;
@@ -89,7 +91,7 @@ html {
   }
   
   .appear {
-    animation: clear 1s 0.5s forwards;
+    animation: slideUp 1s 0.5s forwards;
     opacity: 0;
     transform: scale(0.9);
   }
@@ -99,7 +101,7 @@ html {
     overflow: hidden;
   }
   
-  @keyframes clear {
+  @keyframes slideUp {
     to {
       opacity: 1;
       transform: none;
