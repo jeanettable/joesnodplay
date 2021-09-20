@@ -17,7 +17,7 @@ html {
   .site-header {
     position: relative;
     height: 100vh;
-    background: linear-gradient(180deg, rgb(36, 36, 36), rgb(10.6, 10.6, 10.6));
+    background: linear-gradient(180deg, rgb(36, 36, 36), rgb(0, 0, 0));
     overflow: hidden;
   }
   
@@ -85,7 +85,7 @@ html {
   }
   
   .site-header .header-cue-icon {
-    animation: slide-down 0.5s 1.8s forwards, pulse 2s 4s ease-in-out infinite;
+    animation: slideDown 0.5s 1.8s forwards, pulse 2s 4s ease-in-out infinite;
     transform: translateY(-2rem);
     opacity: 1;
   }
@@ -108,7 +108,7 @@ html {
     }
   }
   
-  @keyframes slide-down {
+  @keyframes slideDown {
     from {
       transform: translateY(-2rem);
       opacity: 0;
