@@ -113,27 +113,43 @@ html {
   
   .top-left {
     position: absolute;
-    top: 6%;
-    left: 6%;
+    top: 4%;
+    left: 15%;
+    font-size: x-large;
   }
 
   .middle-right {
     position: absolute;
     top: 18%;
-    right:6%;
+    right:13%;
+    font-size: x-large;
   }
 
   .center-between {
     position: absolute;
-    top: 35%;
-    left: 30%;
+    top: 37%;
+    left: 26%;
     transform: translate(-50%, -50%);
+    font-size: xx-large;
+  }
+
+  .typing {
+    position: relative;
+  }
+
+  .typing::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    width: 2px;
+    height: 96%;
+    border-right: 2px solid antiquewhite;
+    animation: blink 0.8s infinite ease;
   }
 
   #intro {
     color: antiquewhite;
-    font-family:'Courier New', Courier, monospace;
-    font-weight: bolder;
+    font-family: 'Dancing Script', cursive;    font-weight: bolder;
   }
 
   #friend {
@@ -175,6 +191,15 @@ html {
     100% {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  @keyframes blink {
+    0%{
+      opacity: 0
+    }
+    100%{
+      opacity: 1;
     }
   }
   

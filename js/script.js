@@ -23,7 +23,26 @@ $(function () {
         (rect.top >= 0 && rect.bottom <= window.innerHeight)
       )
     }
-  
+
+    function typeHeader() {
+      const text = "True & Unquestionable";
+      let idx = 0;
+      let letters = "";
+
+      (function type() {
+        if(idx < text.length)  {  // 20
+          letters = text.slice(0, ++idx); // one char at a time
+          console.log('letters>>>', letters); // should be modified
+          console.log('type block hit!', idx+1);
+          document.querySelector('.typing').textContent = letters;
+        }
+        setTimeout(type, 280);
+      }());
+    }
+    // recursive call to keep animating?
+    window.requestAnimationFrame(typeHeader);
+
+
     function moveHeader() {
       let top = window.pageYOffset
       let mainOnTop = playSection.getBoundingClientRect().top - navHeight
@@ -57,7 +76,7 @@ $(function () {
     window.requestAnimationFrame(moveHeader)
   
   /* intro section:
-  [ ] grab each element with js DOM
+  [x] grab each element with js DOM
   [ ] pin the section/background image for animation on scroll
   [ ] animate in #character1 quote
   [ ] animate in #character2 quote
@@ -79,19 +98,23 @@ $(function () {
       // y: 400,
       opacity: 5,
     })
+    // let truthTextTween = gsap.from('#truthy', {
+    //   opacity: 5,
+    // })
   
     new ScrollMagic.Scene({
       triggerElement: '#intro',
       duration: '100%',
       triggerHook: 0,
     })
+    // need to build a gsap timeline, then feed timeline to setTween
       .setTween(char1TextTween)
       .setTween(char2TextTween)
+      // .setTween(truthTextTween)
       .setPin('#intro')
       .addTo(controller)
   
     // Parachute
-  
     let parachuteTween = new TimelineMax()
   
     parachuteTween
