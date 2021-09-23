@@ -1,14 +1,19 @@
 $(function () {
-    let headerContent = document.querySelector('.header-content')
-    let nav = document.querySelector('.site-nav')
-    let headerCue = document.querySelector('.header-cue')
-    let meetMonsters = document.querySelector('#meet')
-    let monsterScroll = document.querySelectorAll('#monster-group .monster')
-    let navHeight = nav.scrollHeight
+    let headerContent = document.querySelector('.header-content');
+    let nav = document.querySelector('.site-nav');
+    let headerCue = document.querySelector('.header-cue');
+    // previously meetMonsters:
+    let introSection = document.querySelector('#intro');
+    // previously monsterScroll:
+    let introQuotes = document.querySelectorAll('#intro .intro-quote');
+    console.log('introQuotes>>>', introQuotes);
+    let playSection = document.querySelector('#play');
+    let navHeight = nav.scrollHeight;
   
-    monsterScroll.forEach(
-      (item) => (item.style.animationDelay = `${Math.random() * 1 + 0.4}s`)
-    )
+    // potentially use this feature for team bios
+    // monsterScroll.forEach(
+    //   (item) => (item.style.animationDelay = `${Math.random() * 1 + 0.4}s`)
+    // )
   
     function inViewPort(el) {
       let rect = el.getBoundingClientRect()
@@ -21,7 +26,7 @@ $(function () {
   
     function moveHeader() {
       let top = window.pageYOffset
-      let mainOnTop = meetMonsters.getBoundingClientRect().top - navHeight
+      let mainOnTop = playSection.getBoundingClientRect().top - navHeight
   
       mainOnTop < 0
         ? nav.classList.add('in-body')
@@ -37,7 +42,9 @@ $(function () {
       headerContent.style.opacity =
         1 - Math.max(top / (window.innerHeight * 0.2), 0)
   
-      monsterScroll.forEach((item) =>
+      // makes quotes appear if they are in viewport
+      let introQuotes = document.querySelectorAll('.intro-quote');
+      introQuotes.forEach((item) =>
         inViewPort(item)
           ? item.classList.add('appear')
           : item.classList.remove('appear')
@@ -46,21 +53,41 @@ $(function () {
       window.requestAnimationFrame(moveHeader)
     }
   
+    // recursive call to constantly update header
     window.requestAnimationFrame(moveHeader)
   
+  /* intro section:
+  [ ] grab each element with js DOM
+  [ ] pin the section/background image for animation on scroll
+  [ ] animate in #character1 quote
+  [ ] animate in #character2 quote
+  [ ] make those two disappear via removing .is-viz class
+  [ ] ^ AS #truthy animates/fades in
+  [ ] unpin section to move onto the next play section
+  */
+    let joeQuote = document.querySelector('#character1');
+    let margQuote = document.querySelector('#character2');
+    let truthQuote = document.querySelector('#truthy');
+
+
     let controller = new ScrollMagic.Controller()
-    let friendTextTween = TweenMax.from('.friend-text', {
-      y: 400,
-      opacity: 0,
+    let char1TextTween = gsap.from('#character1', {
+      // y: 400,
+      opacity: 5,
+    })
+    let char2TextTween = gsap.from('#character2', {
+      // y: 400,
+      opacity: 5,
     })
   
     new ScrollMagic.Scene({
-      triggerElement: '#friend',
+      triggerElement: '#intro',
       duration: '100%',
       triggerHook: 0,
     })
-      .setTween(friendTextTween)
-      .setPin('#friend')
+      .setTween(char1TextTween)
+      .setTween(char2TextTween)
+      .setPin('#intro')
       .addTo(controller)
   
     // Parachute
