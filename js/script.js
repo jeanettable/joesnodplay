@@ -1,16 +1,19 @@
 $(function () {
+  gsap.from('.layout-hero', {
+    backgroundColor: '#fff', 
+    duration: 1.7,
+    ease: 'none',
+  });
+
     let headerContent = document.querySelector('.header-content');
     let nav = document.querySelector('.site-nav');
     let headerCue = document.querySelector('.header-cue');
-    // previously meetMonsters:
-    let introSection = document.querySelector('#intro');
-    // previously monsterScroll:
     let introQuotes = document.querySelectorAll('#intro .intro-quote');
     console.log('introQuotes>>>', introQuotes);
     let playSection = document.querySelector('#play');
     let navHeight = nav.scrollHeight;
   
-    // potentially use this feature for team bios
+    // potentially use this feature for team bios?
     // monsterScroll.forEach(
     //   (item) => (item.style.animationDelay = `${Math.random() * 1 + 0.4}s`)
     // )
@@ -24,22 +27,28 @@ $(function () {
       )
     }
 
+    /* 
+    ACTIVE TYPING HEADER:
+    [x] separate header content to insert typewriter cursor
+    [x] create typeHeader function to manipulate DOM
+    [x] recursively call function to animate title typing
+    */
+
     function typeHeader() {
       const text = "True & Unquestionable";
       let idx = 0;
       let letters = "";
 
       (function type() {
-        if(idx < text.length)  {  // 20
+        if(idx < text.length)  {
           letters = text.slice(0, ++idx); // one char at a time
-          console.log('letters>>>', letters); // should be modified
-          console.log('type block hit!', idx+1);
+          // console.log('type block hit!', idx+1);
           document.querySelector('.typing').textContent = letters;
         }
         setTimeout(type, 280);
       }());
     }
-    // recursive call to keep animating?
+    // recursive call to keep animating
     window.requestAnimationFrame(typeHeader);
 
 
@@ -84,34 +93,47 @@ $(function () {
   [ ] ^ AS #truthy animates/fades in
   [ ] unpin section to move onto the next play section
   */
-    let joeQuote = document.querySelector('#character1');
-    let margQuote = document.querySelector('#character2');
-    let truthQuote = document.querySelector('#truthy');
 
-
-    let controller = new ScrollMagic.Controller()
-    let char1TextTween = gsap.from('#character1', {
-      // y: 400,
-      opacity: 5,
-    })
-    let char2TextTween = gsap.from('#character2', {
-      // y: 400,
-      opacity: 5,
-    })
+  // GOING TO BE REPLACED BY SCROLLTRIGGER?
+    // let controller = new ScrollMagic.Controller()
+    // let char1TextTween = gsap.from('#character1', {
+    //   // y: 400,
+    //   opacity: 0,
+    // })
+    // let char2TextTween = gsap.from('#character2', {
+    //   // y: 400,
+    //   opacity: 0,
+    // })
     // let truthTextTween = gsap.from('#truthy', {
     //   opacity: 5,
     // })
+
+    let introTimeline = gsap.timeline();
+    introTimeline
+    .from('#character1', {
+      duration: 1.5,
+      opacity: 0,
+      ease: 'linear',
+    })
+    .from('#character2', {
+      duration: 1.5,
+      opacity: 0,
+      ease: 'linear',
+    })
+    .from('#truthy', {
+      duration: 1.5,
+      opacity: 0,
+      ease: 'linear',
+    })
+
   
     new ScrollMagic.Scene({
       triggerElement: '#intro',
       duration: '100%',
       triggerHook: 0,
     })
-    // need to build a gsap timeline, then feed timeline to setTween
-      .setTween(char1TextTween)
-      .setTween(char2TextTween)
-      // .setTween(truthTextTween)
       .setPin('#intro')
+      .setTween(introTimeline)
       .addTo(controller)
   
     // Parachute
@@ -160,5 +182,6 @@ $(function () {
       .setPin('#types')
       .setTween(typesTween)
       .addTo(controller)
+
   }) // when page loads
   
