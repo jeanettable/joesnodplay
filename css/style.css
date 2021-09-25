@@ -101,15 +101,6 @@ html {
     visibility: false;
     z-index: 0;
   }
-
-  /* typewriter look desired, adding .is-viz will make the text visible,
-  and adjust z-index to be lay on top of the background img */
-  /* .intro-quote .is-viz {
-    visibility: true;
-    color: antiquewhite;
-    font-family:'Courier New', Courier, monospace;
-    z-index: 100;
-  } */
   
   .top-left {
     position: absolute;
@@ -129,8 +120,16 @@ html {
     position: absolute;
     top: 37%;
     left: 26%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     font-size: xx-large;
+  }
+
+  .synopsis-content-antq {
+    color: antiquewhite;
+  }
+
+  .synopsis-content {
+    color: white;
   }
 
   .typing {
@@ -148,8 +147,14 @@ html {
   }
 
   #intro {
-    color: antiquewhite;
-    font-family: 'Dancing Script', cursive;    font-weight: bolder;
+    /* visibility: hidden;  for alleviating the "flash" */
+    color:white;
+    font-family: 'Dancing Script', cursive;    
+    font-weight: bolder;
+    /* text-align: center; */
+    overflow: hidden;
+    height: 100vh; 
+    /* ^ changes container for potential parallax slide */
   }
 
   #friend {
