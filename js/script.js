@@ -1,4 +1,6 @@
 $(function () {
+  gsap.registerPlugin(ScrollTrigger);
+
   gsap.from('.layout-hero', {
     backgroundColor: '#fff', 
     duration: 1.7,
@@ -8,15 +10,14 @@ $(function () {
     let headerContent = document.querySelector('.header-content');
     let nav = document.querySelector('.site-nav');
     let headerCue = document.querySelector('.header-cue');
-    let introQuotes = document.querySelectorAll('#intro .intro-quote');
-    console.log('introQuotes>>>', introQuotes);
     let playSection = document.querySelector('#play');
+    let playContentTiles = document.querySelectorAll('#play-img-content .play-tile');
     let navHeight = nav.scrollHeight;
   
-    // potentially use this feature for team bios?
-    // monsterScroll.forEach(
-    //   (item) => (item.style.animationDelay = `${Math.random() * 1 + 0.4}s`)
-    // )
+    // random population of play info content tiles:
+    playContentTiles.forEach(
+      (item) => (item.style.animationDelay = `${Math.random() * 1 + 0.4}s`)
+    )
   
     function inViewPort(el) {
       let rect = el.getBoundingClientRect()
@@ -70,9 +71,8 @@ $(function () {
       headerContent.style.opacity =
         1 - Math.max(top / (window.innerHeight * 0.2), 0)
   
-      // makes quotes appear if they are in viewport
-      let introQuotes = document.querySelectorAll('.intro-quote');
-      introQuotes.forEach((item) =>
+      // makes quotes appear randomly, only if they are in viewport
+      playContentTiles.forEach((item) =>
         inViewPort(item)
           ? item.classList.add('appear')
           : item.classList.remove('appear')
@@ -89,7 +89,7 @@ $(function () {
   [ ] pin the section/background image for animation on scroll
   [ ] animate in #character1 quote
   [ ] animate in #character2 quote
-  [ ] make those two disappear via removing .is-viz class
+  [ ] make those two disappear .to tweens
   [ ] ^ AS #truthy animates/fades in
   [ ] unpin section to move onto the next play section
   */
@@ -108,10 +108,23 @@ $(function () {
     //   opacity: 5,
     // })
 
-    let introTimeline = gsap.timeline();
+    // parallax effect within ScrollTrigger:
+
+    let introTimeline = gsap.timeline({
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#intro',
+        start: 'top bottom',
+        pin: true,
+        scrub: true,
+        markers: true,
+      },
+    });
+    
     introTimeline
     .from('#character1', {
-      duration: 1.5,
+      autoAlpha: 0,
+      duration: 1,
       opacity: 0,
       ease: 'linear',
     })
@@ -120,68 +133,81 @@ $(function () {
       opacity: 0,
       ease: 'linear',
     })
+    .to('#character1', {
+      duration: 1,
+      opacity: 0,
+      ease: 'linear'
+    })
+    .to('#character2', {
+      duration: 1,
+      opacity: 0,
+      ease: 'linear'
+    })
     .from('#truthy', {
-      duration: 1.5,
+      duration: 3,
       opacity: 0,
       ease: 'linear',
-    })
+    });
 
-  
-    new ScrollMagic.Scene({
-      triggerElement: '#intro',
-      duration: '100%',
-      triggerHook: 0,
-    })
-      .setPin('#intro')
-      .setTween(introTimeline)
-      .addTo(controller)
+    console.log('*** ', introTimeline.scrollTrigger);
+
+
+    // ALL USING SCROLLMAGIC:
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#intro',
+    //   duration: '100%',
+    //   triggerHook: 0,
+    // })
+    //   .setPin('#intro')
+    //   .setTween(introTimeline)
+    //   .addTo(controller)
   
     // Parachute
-    let parachuteTween = new TimelineMax()
+    // let parachuteTween = new TimelineMax()
   
-    parachuteTween
-      .from('#parachute', {
-        scale: 0.5,
-        opacity: 0.25,
-        rotation: -40,
-        x: '100%',
-        y: '-200%',
-      })
-      .to('#parachute', {
-        x: '30%',
-        y: '20%',
-        rotation: -30,
-      })
-      .to('#parachute', {
-        x: '-80%',
-        y: '250%',
-        rotation: 30,
-      })
+    // parachuteTween
+    //   .from('#parachute', {
+    //     scale: 0.5,
+    //     opacity: 0.25,
+    //     rotation: -40,
+    //     x: '100%',
+    //     y: '-200%',
+    //   })
+    //   .to('#parachute', {
+    //     x: '30%',
+    //     y: '20%',
+    //     rotation: -30,
+    //   })
+    //   .to('#parachute', {
+    //     x: '-80%',
+    //     y: '250%',
+    //     rotation: 30,
+    //   })
   
-    new ScrollMagic.Scene({
-      triggerElement: '#friend',
-      duration: '170%',
-      triggerHook: 0,
-    })
-      .setTween(parachuteTween)
-      .addTo(controller)
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#friend',
+    //   duration: '170%',
+    //   triggerHook: 0,
+    // })
+    //   .setTween(parachuteTween)
+    //   .addTo(controller)
   
-    let typesTween = new TimelineMax()
+    // let typesTween = new TimelineMax()
   
-    typesTween.from('#types .col', {
-      scale: 0.5,
-      opacity: 0,
-      stagger: 0.25,
-    })
+    // typesTween.from('#types .col', {
+    //   scale: 0.5,
+    //   opacity: 0,
+    //   stagger: 0.25,
+    // })
   
-    new ScrollMagic.Scene({
-      triggerElement: '#types',
-      triggerHook: 0,
-      duration: 300,
-    })
-      .setPin('#types')
-      .setTween(typesTween)
-      .addTo(controller)
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#types',
+    //   triggerHook: 0,
+    //   duration: 300,
+    // })
+    //   .setPin('#types')
+    //   .setTween(typesTween)
+    //   .addTo(controller)
 
   }) // when page loads
   
