@@ -47,7 +47,7 @@
       </div>
     </nav>
 
-    <header id="jsp" class="site-header bg-primary">
+    <header id="jsp" class="site-header bg-dark">
       <section class="layout-hero d-flex flex-column text-light min-vh-100">
         <div class="header-content d-flex flex-column flex-fill">
           <div class="d-flex flex-column container justify-content-center align-items-center flex-fill text-center" >
@@ -81,83 +81,74 @@
       </div>
     </section>
 
-    <article id="play" class="page-section text-center py-5 bg-dark">
-      <header class="container w-100">
+    <article id="play" class="page-section text-center py-5 bg-secondary">
+      <header class="container w-100 mt-2">
         <h1 class="display-4 text-white font-weight-lighter mb-0">
           That's a long title. What's this show about?
         </h1>
-        <!-- <h2 class="synopsis-content-antq">Synopsis</h2>
-        <p class="synopsis-content">
-          <em>The True &amp; Unquestionable Account of Dr. Joseph Snodgrass</em> is an environmental, musical play about the man who fabricatedmany of the facts we still believe about Edgar Allan Poe today.
-        </p> -->
-        <!-- <h5 class="synopsis-content">Why did he lie?</h5> -->
-        <!-- <h4 class="synopsis-content-antq">Sometimes the truth is stranger than fiction.</h4>
-        <p class="synopsis-content">Set in three overlapping timelines, the play walks a tightrope between drama and thriller, and sits on a knife's edge between reality and fantasy. It is the story about a man on the edge of sanity, a real-life murder plot, and a house that manipulates the nature of reality.</p> -->
-        <!-- <h4 class="synopsis-content-antq">Question everything you think you know.</h4> -->
       </header>
 
       <section id="play-img-content" class="layout-multicolumn container">
         <div
-          class="row row-cols-1 row-cols-md-3 justify-content-center text-uppercase"
+          class="row row-cols-1 row-cols-md-3 mt-5 justify-content-center align-items-center"
         >
-        <!-- randomize images/content with facts about the play (^) placeholder? -->
-        <section class="play-tile mb-5 col">
-          <!-- ** written content ** -->
-          <h2 class="synopsis-content-antq pt-2 font-weight-normal">Synopsis</h2>
-          <h5 class="synopsis-content pt-2 font-weight-light">
-            <em>The True &amp; Unquestionable Account of Dr. Joseph Snodgrass</em> is an environmental, musical play about the man who fabricatedmany of the facts we still believe about Edgar Allan Poe today.
-          </h5>
-          <h4 class="synopsis-content pt-2 font-weight-light">Why did he lie?</h4>
-        </section>
-
+        <!-- content appears randomized, only when in viewport -->
         <section class="play-tile mb-5 col thumbnail">
           <!-- ** only image ** -->
           <img
-            class="tile-img img-rounded"
+            class="tile-img img-rounded rounded"
             src="images/malefigure.jpg"
             alt="Ominous Picture of Male Character in distress."
             style="width:100%"
           />
         </section>
-
+        
         <section class="play-tile mb-5 col">
           <!-- ** written content ** -->
-          <h2 class="synopsis-content-antq pt-2 font-weight-normal">Sometimes the truth is stranger than fiction.</h2>
-          <h5 class="synopsis-content pt-2 font-weight-light">Set in three overlapping timelines, the play walks a tightrope between drama and thriller, and sits on a knife's edge between reality and fantasy.</h5>
+          <h2 class="synopsis-content-antq pt-2 font-weight-normal">Synopsis</h2>
+          <h5 class="synopsis-content pt-5 font-weight-light">
+            <em>The True &amp; Unquestionable Account of Dr. Joseph Snodgrass</em> is an environmental, musical play about the man who fabricated many of the facts we still believe about Edgar Allan Poe today.
+          </h5>
+          <h3 class="synopsis-content-antq pt-5 font-weight-normal">Why did he lie?</h3>
         </section>
 
         <section class="play-tile mb-5 col thumbnail">
           <!-- ** only image ** -->
           <img
-            class="tile-image img-rounded"
-            src="images/environment_2.jpg"
-            alt="Dancers in various shapes in ominous environment."
-            style="width:100%"
-          />
-        </section>
-
-        <section class="play-tile mb-5 col">
-          <!-- ** written content ** -->
-          <h5 class="synopsis-content pt-2 font-weight-light">It is the story about a man on the edge of sanity, a real-life murder plot, and a house that manipulates the nature of reality.</h5>
-          <h2 class="synopsis-content-antq pt-2 font-weight-normal">Question everything you think you know.</h2>
-
-        </section>
-
-        <section class="play-tile mb-5 col thumbnail">
-          <!-- ** only image ** -->
-          <img
-            class="tile-image img-rounded"
+            class="tile-image img-rounded rounded"
             src="images/desk.house.jpg"
             alt="Writing desk surrounded by mysterious figures."
             style="width:100%"
           />
         </section>
 
+        <section class="play-tile mb-2 col">
+          <!-- ** written content ** -->
+          <h2 class="synopsis-content-antq pt-2 font-weight-normal">Sometimes the truth is stranger than fiction.</h2>
+          <h5 class="synopsis-content pt-4 font-weight-light">Set in three overlapping timelines, the play walks a tightrope between drama and thriller, and sits on a knife's edge between reality and fantasy.</h5>
+        </section>
+
+        <section class="play-tile mb-2 col thumbnail">
+          <!-- ** only image ** -->
+          <img
+            class="tile-image img-rounded rounded"
+            src="images/environment_2.jpg"
+            alt="Dancers in various shapes in ominous environment."
+            style="width:100%"
+          />
+        </section>
+
+        <section class="play-tile mb-2 col">
+          <!-- ** written content ** -->
+          <h5 class="synopsis-content pt-2 font-weight-light">It is the story about a man on the edge of sanity, a real-life murder plot, and a house that manipulates the nature of reality.</h5>
+          <h2 class="synopsis-content-antq pt-4 font-weight-normal">Question everything you think you know.</h2>
+        </section>
+
         </div>
       </section>
     </article>
 
-    <article id="team" class="page-section bg-info min-vh-100 d-flex flex-column justify-content-center">
+    <article id="team" class="page-section bg-black min-vh-100 d-flex flex-column justify-content-center">
       <section class="layout-floater container py-5">
         <div class="row align-items-center justify-content-center">
           <section class="layout-container col-8 col-md-4">
@@ -283,25 +274,10 @@
       </section>
     </article>
 
+    <script src="js/lib/gsap.min.js"></script>
+    <script src="js/lib/ScrollTrigger.min.js"></script>
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/bootstrap.bundle.min.js"></script>
-    <script src="js/lib/gsap.min.js"></script>
-    <script src="js/lib/plugins/ScrollTrigger.min.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
-
-    <!-- <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/bootstrap.bundle.min.js"></script>
-    <script src="js/lib/gsap.min.js"></script>
-    <script src="js/lib/gsap.min.js.map"></script>
-    <script src="js/lib/plugins/ScrollTrigger.min.js"></script>
-    <script src="js/lib/plugins/ScrollTrigger.min.js.map"></script>
-    <script src="js/lib/plugins/animation.gsap.min.js"></script>
-    <script src="js/script.js"></script>
-
-    //
-    <script src="js/lib/plugins/animation.gsap.min.js"></script>
-    <script src="js/lib/ScrollMagic.min.js"></script>
-  </body>
-</html> -->
