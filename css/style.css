@@ -103,23 +103,23 @@ html {
   }
   
   .top-left {
-    /* position: absolute; */
-    top: 4%;
-    left: 15%;
+    position: relative;
+    padding-top: 5%;
+    left: 12%;
     font-size: x-large;
   }
 
   .middle-right {
-    /* position: absolute; */
+    position: relative;
     top: 18%;
-    right:13%;
+    right:10%;
     font-size: x-large;
   }
 
   .center-between {
-    /* position: absolute; */
-    top: 37%;
-    left: 26%;
+    position: relative;
+    top: 42%;
+    left: 11%;
     /* transform: translate(-50%, -50%); */
     font-size: xx-large;
   }
@@ -146,14 +146,23 @@ html {
     animation: blink 0.8s infinite ease;
   }
 
+  .content-wrapper {
+    width: 100%;
+    z-index: 2;
+    justify-content: space-around;
+  }
+
   .intro {
+    position: relative;
     background-image: url('../images/environment_1.jpg');
-    height: 100vh; 
+    height: 108%; 
+    width: 100%;
     background-size: cover;
+    z-index: 1;
   }
 
   #intro {
-    /* position: relative; */
+    position: relative;
     height: 100vh; 
     color:white;
     font-family: 'Dancing Script', cursive;    

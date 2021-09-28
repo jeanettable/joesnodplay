@@ -1,11 +1,11 @@
-$(function () {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.layout-hero', {
-    backgroundColor: '#fff', 
-    duration: 1.7,
-    ease: 'none',
-  });
+  function init() {
+    gsap.from('.layout-hero', {
+      backgroundColor: '#fff', 
+      duration: 1.7,
+      ease: 'none',
+    });
 
     let headerContent = document.querySelector('.header-content');
     let nav = document.querySelector('.site-nav');
@@ -16,7 +16,7 @@ $(function () {
   
     // random population of play info content tiles:
     playContentTiles.forEach(
-      (item) => (item.style.animationDelay = `${Math.random() * 1 + 0.4}s`)
+      (item) => (item.style.animationDelay = `${Math.random() * 1 + 0.25}s`)
     )
   
     function inViewPort(el) {
@@ -109,48 +109,73 @@ $(function () {
     // })
 
     // parallax effect within ScrollTrigger:
+    // const introTimeline = gsap.timeline({
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: '#intro',
+    //     start: 'top bottom',
+    //     pin: true,
+    //     scrub: true,
+    //     markers: true,
+    //   },
+    // });
 
-    let introTimeline = gsap.timeline({
+    const parallaxTL = gsap.timeline({
       ease: 'none',
       scrollTrigger: {
         trigger: '#intro',
-        start: 'top bottom',
-        pin: true,
+        start: 'top 45%', //when top is at middle of vp
+        end: 'bottom 75%',
         scrub: true,
         markers: true,
-      },
-    });
-    
-    introTimeline
-    .from('#character1', {
-      autoAlpha: 0,
-      duration: 1,
-      opacity: 0,
-      ease: 'linear',
-    })
-    .from('#character2', {
-      duration: 1.5,
-      opacity: 0,
-      ease: 'linear',
-    })
-    .to('#character1', {
-      duration: 1,
-      opacity: 0,
-      ease: 'linear'
-    })
-    .to('#character2', {
-      duration: 1,
-      opacity: 0,
-      ease: 'linear'
-    })
-    .from('#truthy', {
-      duration: 3,
-      opacity: 0,
-      ease: 'linear',
+        // pin: true,
+      }
     });
 
-    console.log('*** ', introTimeline.scrollTrigger);
+    parallaxTL
+      .from('.content-wrapper', { duration: 0.5, autoAlpha: 0})
+      // .from('.intro', {duration: 5, y: '-30%' }, 0.5 )
+      .from('#character1', {
+        autoAlpha: 0,
+        duration: 1.5,
+        opacity: 0,
+        ease: 'linear',
+      }, 2)
+      .from('#character2', {
+        duration: 1.5,
+        delay: 1.5,
+        opacity: 0,
+        ease: 'linear',
+      }, 4)
+      .to('#character1', {
+        duration: 1,
+        delay: 3,
+        opacity: 0,
+        ease: 'linear'
+      })
+      .to('#character2', {
+        duration: 1,
+        delay: 4.5,
+        opacity: 0,
+        ease: 'linear'
+      })
+      .from('#truthy', {
+        duration: 1,
+        delay: 5,
+        opacity: 0,
+        ease: 'linear',
+      })
+      .to('#truthy', {
+        duration: 1,
+        delay: 7,
+        opacity: 0, 
+        ease: 'linear',
+      });
 
+    /*
+    [ ] animate in the play section title
+    [x] speed up tile appearances?
+    */
 
     // ALL USING SCROLLMAGIC:
     // new ScrollMagic.Scene({
@@ -209,5 +234,9 @@ $(function () {
     //   .setTween(typesTween)
     //   .addTo(controller)
 
-  }) // when page loads
+  } // call init when page loads
+
+  window.addEventListener('load', () => {
+    init();
+  });
   
