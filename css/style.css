@@ -103,21 +103,21 @@ html {
   }
   
   .top-left {
-    position: absolute;
+    /* position: absolute; */
     top: 4%;
     left: 15%;
     font-size: x-large;
   }
 
   .middle-right {
-    position: absolute;
+    /* position: absolute; */
     top: 18%;
     right:13%;
     font-size: x-large;
   }
 
   .center-between {
-    position: absolute;
+    /* position: absolute; */
     top: 37%;
     left: 26%;
     /* transform: translate(-50%, -50%); */
@@ -146,21 +146,34 @@ html {
     animation: blink 0.8s infinite ease;
   }
 
+  .intro {
+    background-image: url('../images/environment_1.jpg');
+    height: 100vh; 
+    background-size: cover;
+  }
+
   #intro {
-    /* visibility: hidden;  for alleviating the "flash" */
+    /* position: relative; */
+    height: 100vh; 
     color:white;
     font-family: 'Dancing Script', cursive;    
     font-weight: bolder;
-    /* text-align: center; */
-    overflow: hidden;
-    height: 100vh; 
     /* ^ changes container for potential parallax slide */
   }
 
-  #friend {
+  #play {
+    background: linear-gradient(180deg, rgb(65, 64, 64), rgb(34, 32, 32));
+  }
+
+  #why {
+    background: linear-gradient(180deg, rgb(98, 98, 98),  rgb(8, 8, 8));
+  }
+
+  /* #friend {
     z-index: 15;
     overflow: hidden;
-  }
+    // parachute section duplicate
+  } */
   
   @keyframes slideUp {
     to {
