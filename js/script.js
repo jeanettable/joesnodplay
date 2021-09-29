@@ -87,87 +87,62 @@
   /* intro section:
   [x] grab each element with js DOM
   [ ] pin the section/background image for animation on scroll
-  [ ] animate in #character1 quote
-  [ ] animate in #character2 quote
-  [ ] make those two disappear .to tweens
-  [ ] ^ AS #truthy animates/fades in
+  [x] animate in #character1 quote
+  [x] animate in #character2 quote
+  [x] make those two disappear .to tweens
+  [x] ^ AS #truthy animates/fades in
   [ ] unpin section to move onto the next play section
   */
 
-  // GOING TO BE REPLACED BY SCROLLTRIGGER?
-    // let controller = new ScrollMagic.Controller()
-    // let char1TextTween = gsap.from('#character1', {
-    //   // y: 400,
-    //   opacity: 0,
-    // })
-    // let char2TextTween = gsap.from('#character2', {
-    //   // y: 400,
-    //   opacity: 0,
-    // })
-    // let truthTextTween = gsap.from('#truthy', {
-    //   opacity: 5,
-    // })
-
     // parallax effect within ScrollTrigger:
-    // const introTimeline = gsap.timeline({
-    //   ease: 'none',
-    //   scrollTrigger: {
-    //     trigger: '#intro',
-    //     start: 'top bottom',
-    //     pin: true,
-    //     scrub: true,
-    //     markers: true,
-    //   },
-    // });
-
-    const parallaxTL = gsap.timeline({
+    const introTL = gsap.timeline({
       ease: 'none',
       scrollTrigger: {
-        trigger: '#intro',
-        start: 'top 45%', //when top is at middle of vp
-        end: 'bottom 75%',
-        scrub: true,
+        trigger: '.intro',
+        start: 'top top', //when top is at middle of vp
+        end: '+=100%',  // 'bottom bottom'
+        scrub: 0.05,
         markers: true,
-        // pin: true,
+        anticipatePin: 1,
+        pin: '#intro',
       }
     });
 
-    parallaxTL
-      .from('.content-wrapper', { duration: 0.5, autoAlpha: 0})
-      // .from('.intro', {duration: 5, y: '-30%' }, 0.5 )
+    introTL
+      .from('.intro', {duration: '100%' }, 0.5 )
       .from('#character1', {
         autoAlpha: 0,
-        duration: 1.5,
+        duration: 3,
         opacity: 0,
         ease: 'linear',
       }, 2)
       .from('#character2', {
-        duration: 1.5,
-        delay: 1.5,
+        duration: 3,
+        delay: 3,
         opacity: 0,
         ease: 'linear',
       }, 4)
       .to('#character1', {
-        duration: 1,
-        delay: 3,
+        duration: 2,
+        delay: 6,
         opacity: 0,
         ease: 'linear'
       })
       .to('#character2', {
-        duration: 1,
-        delay: 4.5,
+        duration: 2,
+        delay: 7,
         opacity: 0,
         ease: 'linear'
       })
       .from('#truthy', {
-        duration: 1,
-        delay: 5,
+        duration: 3,
+        delay: 8,
         opacity: 0,
         ease: 'linear',
       })
       .to('#truthy', {
-        duration: 1,
-        delay: 7,
+        duration: 2,
+        delay: 10,
         opacity: 0, 
         ease: 'linear',
       });
@@ -177,16 +152,7 @@
     [x] speed up tile appearances?
     */
 
-    // ALL USING SCROLLMAGIC:
-    // new ScrollMagic.Scene({
-    //   triggerElement: '#intro',
-    //   duration: '100%',
-    //   triggerHook: 0,
-    // })
-    //   .setPin('#intro')
-    //   .setTween(introTimeline)
-    //   .addTo(controller)
-  
+    // ALL USING SCROLLMAGIC:  
     // Parachute
     // let parachuteTween = new TimelineMax()
   

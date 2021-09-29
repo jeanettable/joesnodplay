@@ -146,19 +146,24 @@ html {
     animation: blink 0.8s infinite ease;
   }
 
+  .intro-parallax {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro {
+    position: absolute;
+    background-image: url('../images/environment_1.jpg');
+    height: 110%; 
+    width: 100%;
+    background-size: cover;
+    z-index: 1;
+  }
+
   .content-wrapper {
     width: 100%;
     z-index: 2;
     justify-content: space-around;
-  }
-
-  .intro {
-    position: relative;
-    background-image: url('../images/environment_1.jpg');
-    height: 108%; 
-    width: 100%;
-    background-size: cover;
-    z-index: 1;
   }
 
   #intro {
@@ -167,7 +172,6 @@ html {
     color:white;
     font-family: 'Dancing Script', cursive;    
     font-weight: bolder;
-    /* ^ changes container for potential parallax slide */
   }
 
   #play {
