@@ -3,6 +3,10 @@ html {
     /* font-family: 'Great Vibes', cursive;
     font-family: 'Open Sans', sans-serif; */
   }
+
+  body {
+    background-color: rgb(65, 64, 64);
+  }
   
   .site-nav {
     z-index: 20;
