@@ -35,23 +35,34 @@
     [x] recursively call function to animate title typing
     */
 
-    function typeHeader() {
-      const text = "True & Unquestionable";
-      let idx = 0;
-      let letters = "";
+    // function typeHeader() {
+    //   const text = "True and Unquestionable";
+    //   let idx = 0;
+    //   let letters = "";
 
-      (function type() {
-        if(idx < text.length)  {
-          letters = text.slice(0, ++idx); // one char at a time
-          // console.log('type block hit!', idx+1);
-          document.querySelector('.typing').textContent = letters;
-        }
-        setTimeout(type, 280);
-      }());
-    }
-    // recursive call to keep animating
-    window.requestAnimationFrame(typeHeader);
+    //   (function type() {
+    //     if(idx < text.length)  {
+    //       letters = text.slice(0, ++idx); // one char at a time
+    //       // console.log('type block hit!', idx+1);
+    //       document.querySelector('.typing').textContent = letters;
+    //     }
+    //     setTimeout(type, 280);
+    //   }());
+    // }
+    // // recursive call to keep animating
+    // window.requestAnimationFrame(typeHeader);
 
+    // alternative fade-in
+    // const loadTL = gsap.timeline({
+    //   delay: 2
+    // });
+    // loadTL
+    gsap.from('#fade-in', {
+      autoAlpha: 0,
+      duration: 3,
+      opacity: 0,
+      ease: 'linear',
+    }, 2.5);
 
     function moveHeader() {
       let top = window.pageYOffset
@@ -86,13 +97,21 @@
   
   /* intro section:
   [x] grab each element with js DOM
-  [ ] pin the section/background image for animation on scroll
+  [x] pin the section/background image for animation on scroll
   [x] animate in #character1 quote
   [x] animate in #character2 quote
   [x] make those two disappear .to tweens
   [x] ^ AS #truthy animates/fades in
-  [ ] unpin section to move onto the next play section
+  [x] unpin section to move onto the next play section
+  [ ] attempt simultaneous zoom effect on image (in timeline?)
   */
+
+    // const imgZoomOut = 
+    // TweenMax.fromTo('.intro', '100%', 
+    // { scale: 5 }, 
+    // { scale: 1,
+    //   ease: ExpoScaleEase.config(5, 1, Power2.easeInOut),
+    // });
 
     // parallax effect within ScrollTrigger:
     const introTL = gsap.timeline({
@@ -105,6 +124,7 @@
         markers: true,
         anticipatePin: 1,
         pin: '#intro',
+        // pinSpacing: false,
       }
     });
 

@@ -5,7 +5,8 @@ html {
   }
 
   body {
-    background-color: rgb(65, 64, 64);
+    /* background-color: rgb(65, 64, 64); */
+    background-color: black;
   }
 
   .btn {
@@ -38,7 +39,7 @@ html {
     bottom: 0;
     left: 0;
     z-index: 5;
-    background-image: url(../images/hero.svg);
+    /* background-image: url(.svg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -104,11 +105,6 @@ html {
     opacity: 0;
     transform: scale(0.9);
   }
-
-  .invisible {
-    visibility: false;
-    z-index: 0;
-  }
   
   .top-left {
     position: relative;
@@ -128,7 +124,6 @@ html {
     position: relative;
     top: 42%;
     left: 11%;
-    /* transform: translate(-50%, -50%); */
     font-size: xx-large;
   }
 
@@ -140,11 +135,11 @@ html {
     color: white;
   }
 
-  .typing {
-    position: relative;
+  .team-text {
+    justify-content:space-evenly;
   }
 
-  .typing::after {
+  /* .typing::after {
     content: "";
     position: absolute;
     right: -3px;
@@ -152,7 +147,7 @@ html {
     height: 96%;
     border-right: 2px solid antiquewhite;
     animation: blink 0.8s infinite ease;
-  }
+  } */
 
   .intro-parallax {
     position: relative;
@@ -182,21 +177,27 @@ html {
     font-weight: bolder;
   }
 
-  #play {
+  /* #play {
     background: linear-gradient(180deg, rgb(65, 64, 64), rgb(34, 32, 32));
-  }
+  } */
 
   #team {
     color: whitesmoke;
     font-size: medium;
   }
 
-  #why {
+  /* #why {
     background: linear-gradient(180deg, rgb(98, 98, 98),  rgb(8, 8, 8));
+  } */
+
+  #fade-in {
+    position: relative;
+    visibility: hidden;
   }
 
   #links {
-    background-color: rgb(8, 8, 8);
+    /* background-color: rgb(8, 8, 8); */
+    background-color: black;
     color: antiquewhite;
     padding-bottom: 8%;
   }
