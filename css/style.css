@@ -5,7 +5,7 @@ html {
   }
 
   body {
-    /* background-color: rgb(65, 64, 64); */
+    font-family: 'Old Standard TT', serif;
     background-color: black;
   }
 
@@ -193,6 +193,7 @@ html {
   #fade-in {
     position: relative;
     visibility: hidden;
+    font-size: x-large;
   }
 
   #links {
