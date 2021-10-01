@@ -74,7 +74,7 @@
         ? headerCue.classList.add('d-none')
         : headerCue.classList.remove('d-none')
   
-      headerContent.style.transform = `translateY(-${top / 1.5}px)`
+      headerContent.style.transform = `translateY(-${top / 0.8}px)`
       headerContent.style.opacity =
         1 - Math.max(top / (window.innerHeight * 0.2), 0)
   
@@ -123,7 +123,7 @@
         start: 'top top', //when top is at middle of vp
         end: '+=100%',  // 'bottom bottom'
         scrub: 0.05,
-        markers: true,
+        // markers: true,
         anticipatePin: 1,
         pin: '#intro',
         // pinSpacing: false,

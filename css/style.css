@@ -191,6 +191,13 @@ html {
     justify-content: space-around;
   }
 
+.layout-hero {
+  background-image: url('../images/Artboard\ 1.svg');
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
   #intro {
     position: relative;
     height: 100vh; 
@@ -202,6 +209,10 @@ html {
   /* #play {
     background: linear-gradient(180deg, rgb(65, 64, 64), rgb(34, 32, 32));
   } */
+
+  #house-logo {
+    height: 65vh;
+  }
 
   #team {
     color: whitesmoke;
