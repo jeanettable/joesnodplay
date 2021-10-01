@@ -9,6 +9,20 @@ html {
     background-color: black;
   }
 
+  .icon {
+    background: url('../images/Artboard\ 1.svg');
+    background-color: antiquewhite;
+    height: 20px;
+    width: 20px;
+    display: inline-flex;
+  }
+
+  .layout-icon {
+    width: 60%;
+    background-color:antiquewhite;
+    border-radius: 50%;
+  }
+
   .btn {
     color: inherit;
   }
@@ -127,9 +141,9 @@ html {
     font-size: xx-large;
   }
 
-  .reasons-content .icon {
+  /* .reasons-content .icon {
     color: inherit;
-  }
+  } */
 
   .synopsis-content-antq {
     color: antiquewhite;
@@ -137,10 +151,6 @@ html {
 
   .synopsis-content {
     color: white;
-  }
-
-  .team-text {
-    justify-content:space-evenly;
   }
 
   /* .typing::after {
@@ -152,6 +162,14 @@ html {
     border-right: 2px solid antiquewhite;
     animation: blink 0.8s infinite ease;
   } */
+
+  .heading {
+    color: #f3d128fa;
+  }
+
+  .article-spacing {
+    justify-content: space-between;
+  }
 
   .intro-parallax {
     position: relative;
@@ -197,7 +215,7 @@ html {
   #fade-in {
     position: relative;
     visibility: hidden;
-    font-size: x-large;
+    font-size: xx-large;
   }
 
   #links {
@@ -205,6 +223,16 @@ html {
     background-color: black;
     color: antiquewhite;
     padding-bottom: 8%;
+  }
+
+  .modal {
+    color: black;
+    font-family: inherit;
+  }
+
+  .media {
+    text-decoration: none;
+    color: inherit;
   }
 
   .media:hover {
