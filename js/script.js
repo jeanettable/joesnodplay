@@ -53,10 +53,6 @@
     // window.requestAnimationFrame(typeHeader);
 
     // alternative fade-in
-    // const loadTL = gsap.timeline({
-    //   delay: 2
-    // });
-    // loadTL
     gsap.from('#fade-in', {
       autoAlpha: 0,
       duration: 3,
@@ -82,6 +78,12 @@
       headerContent.style.opacity =
         1 - Math.max(top / (window.innerHeight * 0.2), 0)
   
+      // make section title appear if in viewport
+      let playTitle = document.querySelector('.play-header');
+        inViewPort(playTitle)
+        ? playTitle.classList.add('appear')
+        : playTitle.classList.remove('appear')
+
       // makes quotes appear randomly, only if they are in viewport
       playContentTiles.forEach((item) =>
         inViewPort(item)
@@ -161,14 +163,14 @@
         ease: 'linear',
       })
       .to('#truthy', {
-        duration: 2,
+        duration: 4,
         delay: 10,
         opacity: 0, 
         ease: 'linear',
       });
 
     /*
-    [ ] animate in the play section title
+    [x] animate in the play section title
     [x] speed up tile appearances?
     */
 
@@ -203,6 +205,28 @@
     //   .setTween(parachuteTween)
     //   .addTo(controller)
   
+      // reasons why Tweens:
+      // const whyTL = gsap.timeline({
+      //   ease: 'none',
+      //   scrollTrigger: {
+      //     trigger: '#why',
+      //     start: 'top top', //when top is at middle of vp
+      //     end: '+=100%',  // 'bottom bottom'
+      //     scrub: 0.05,
+      //     markers: true,
+      //     anticipatePin: 1,
+      //     pin: '#intro',
+      //     // pinSpacing: false,
+      //   }
+      // });
+      // whyTL
+      // .from('#types .col', {
+      //   autoAlpha: 0,
+      //   opacity: 0,
+      //   duration: 1,
+      //   stagger: 0.25,
+      // });
+
     // let typesTween = new TimelineMax()
   
     // typesTween.from('#types .col', {
