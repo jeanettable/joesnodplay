@@ -127,6 +127,10 @@ html {
     font-size: xx-large;
   }
 
+  .reasons-content .icon {
+    color: inherit;
+  }
+
   .synopsis-content-antq {
     color: antiquewhite;
   }
@@ -186,9 +190,9 @@ html {
     font-size: medium;
   }
 
-  /* #why {
-    background: linear-gradient(180deg, rgb(98, 98, 98),  rgb(8, 8, 8));
-  } */
+  #why {
+    color: antiquewhite;
+  }
 
   #fade-in {
     position: relative;
@@ -201,6 +205,10 @@ html {
     background-color: black;
     color: antiquewhite;
     padding-bottom: 8%;
+  }
+
+  .media:hover {
+    color: #f3d128fa;
   }
 
   /* #friend {
