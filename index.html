@@ -22,7 +22,6 @@
     >
       <div class="container-fluid">
         <a class="navbar-brand font-weight-normal" href="#jsp">
-          <!-- <span class="icon"></span>  -->
           josephsnodgrassplay</a
         >
         <button
@@ -172,17 +171,17 @@
       </section>
     </article>
 
-    <!-- the audience svg on a fade in and out loop placeholder -->
+    <div id="audience-img" class="d-flex mt-2 mb-2" ></div>
 
     <article id="team" class="page-section bg-black min-vh-100 d-flex flex-column justify-content-center">
       <section class="layout-floater container py-5">
         <div class="row align-items-center justify-content-center">
           <section class="layout-container col-8 col-md-4">
             <img
-              id="dancer-shape"
+              id="roderick"
               class="layout-image"
-              src=""
-              alt="Placeholder svg"
+              src="./images/roderick.svg"
+              alt="Main character portrait."
             />
           </section>
           <section class="col-10 col-md-6 text-center text-md-left pl-md-5 container-fluid">
@@ -339,38 +338,37 @@
       class="page-section text-center min-vh-100 py-5 d-flex flex-column justify-content-center"
     >
       <header class="container mb-3">
-        <h1 class="heading display-4 font-weight-lighter mb-5">
+        <h1 id="why-header" class="heading display-4 font-weight-lighter mb-5">
           Why our script? Why now?
         </h1>
       </header>
       <section class="container reasons-content">
         <div class="row row-cols-1 row-cols-md-3">
           <section class="col mb-2">
+            <a class="media" data-toggle="modal" href="#why1Modal">
             <img
               id="why1"
               class="icon layout-icon mb-5"
-              src="./images/Artboard 1.svg"
+              src="./images/lab-figures.svg"
               style="height: 200px;"
-              alt="Dancers in motion."
+              alt="Figures of ordinary people."
             />
-            <a class="media" data-toggle="modal" href="#why1Modal">
               <h3 class="heading font-weight-light">History</h3>
             </a>
             <p>
               We're a team of women-identifying people passionate about popularizing the accomplishments of real women who have gotten eclipsed by the male-centric historical record. <br />
-              Shockingly enough - they're a lot like us
             </p>
           </section>
 
           <section class="col">
+            <a class="media" data-toggle="modal" href="#why2Modal">
             <img
               id="why2"
               class="icon layout-icon mb-5"
-              src=""
+              src="./images/Artboard 1.svg"
               style="height: 200px;"
-              alt="Placeholder svg 02"
+              alt="House logo."
             />
-            <a class="media" data-toggle="modal" href="#why2Modal">
               <h3 class="heading font-weight-light">Technology</h3>
             </a>
             <p>
@@ -379,14 +377,14 @@
           </section>
 
           <section class="col">
+            <a class="media" data-toggle="modal" href="#why3Modal">
             <img
               id="why3"
               class="icon layout-icon mb-5"
-              src=""
+              src="./images/dancers-motion.svg"
               style="height: 200px;"
-              alt="Placeholder svg 03"
+              alt="Dancers in motion."
             />
-            <a class="media" data-toggle="modal" href="#why3Modal">
               <h3 class="heading font-weight-light">Diversity/Inclusion</h3>
             </a>
             <p>

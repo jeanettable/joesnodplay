@@ -52,13 +52,31 @@
     // // recursive call to keep animating
     // window.requestAnimationFrame(typeHeader);
 
-    // alternative fade-in
+    // alternative fade-in for 'True and Unquestionable'
     gsap.from('#fade-in', {
       autoAlpha: 0,
       duration: 3,
       opacity: 0,
       ease: 'linear',
     }, 2.5);
+
+    let crest = gsap.timeline({
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#jsp',
+        start: 'bottom 65%',
+        end: '+=100%',
+        // markers: true,
+        scrub: true,
+      }
+    });
+    crest
+    .to('.layout-hero', {
+      duration: '100%',
+      delay: 0,
+      visibility: 'hidden',
+      ease: 'linear',
+    });
 
     function moveHeader() {
       let top = window.pageYOffset
@@ -90,6 +108,18 @@
           ? item.classList.add('appear')
           : item.classList.remove('appear')
       )
+
+      // make audience appear if in viewport
+      let audience = document.querySelector('#audience-img');
+      inViewPort(audience)
+      ? audience.classList.add('appear')
+      : audience.classList.remove('appear')
+
+      // make why headers appear if in viewport
+      let whyHeader = document.querySelector('#why-header');
+      inViewPort(whyHeader)
+      ? whyHeader.classList.add('appear')
+      : whyHeader.classList.remove('appear')
   
       window.requestAnimationFrame(moveHeader)
     }
@@ -120,13 +150,12 @@
       ease: 'none',
       scrollTrigger: {
         trigger: '.intro',
-        start: 'top top', //when top is at middle of vp
+        start: 'top top', //when top is at top of vp
         end: '+=100%',  // 'bottom bottom'
         scrub: 0.05,
         // markers: true,
         anticipatePin: 1,
         pin: '#intro',
-        // pinSpacing: false,
       }
     });
 
@@ -168,81 +197,57 @@
         opacity: 0, 
         ease: 'linear',
       });
-
-    /*
-    [x] animate in the play section title
-    [x] speed up tile appearances?
-    */
-
-    // ALL USING SCROLLMAGIC:  
-    // Parachute
-    // let parachuteTween = new TimelineMax()
   
-    // parachuteTween
-    //   .from('#parachute', {
-    //     scale: 0.5,
-    //     opacity: 0.25,
-    //     rotation: -40,
-    //     x: '100%',
-    //     y: '-200%',
-    //   })
-    //   .to('#parachute', {
-    //     x: '30%',
-    //     y: '20%',
-    //     rotation: -30,
-    //   })
-    //   .to('#parachute', {
-    //     x: '-80%',
-    //     y: '250%',
-    //     rotation: 30,
-    //   })
-  
-    // new ScrollMagic.Scene({
-    //   triggerElement: '#friend',
-    //   duration: '170%',
-    //   triggerHook: 0,
-    // })
-    //   .setTween(parachuteTween)
-    //   .addTo(controller)
-  
-      // reasons why Tweens:
-      // const whyTL = gsap.timeline({
+      // audience tween ease in:
+      // const audienceTL = gsap.timeline({
       //   ease: 'none',
       //   scrollTrigger: {
-      //     trigger: '#why',
-      //     start: 'top top', //when top is at middle of vp
-      //     end: '+=100%',  // 'bottom bottom'
-      //     scrub: 0.05,
-      //     markers: true,
-      //     anticipatePin: 1,
-      //     pin: '#intro',
-      //     // pinSpacing: false,
+      //     trigger: '#audience-img',
+      //     start: 'top middle',
+      //     end: '+=100%',
+
       //   }
       // });
-      // whyTL
-      // .from('#types .col', {
+      // audienceTL
+      // .from('#audience-img', {
       //   autoAlpha: 0,
       //   opacity: 0,
-      //   duration: 1,
-      //   stagger: 0.25,
+      //   duration: 1.25,
+      //   ease: 'power2.in', 
+      //   // markers: true,
       // });
 
-    // let typesTween = new TimelineMax()
-  
-    // typesTween.from('#types .col', {
-    //   scale: 0.5,
-    //   opacity: 0,
-    //   stagger: 0.25,
-    // })
-  
-    // new ScrollMagic.Scene({
-    //   triggerElement: '#types',
-    //   triggerHook: 0,
-    //   duration: 300,
-    // })
-    //   .setPin('#types')
-    //   .setTween(typesTween)
-    //   .addTo(controller)
+      // reasons why Tweens:
+      const whyTL = gsap.timeline({
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#why',
+          start: 'top 30%', //when top is at middle of vp
+          end: '+=100%',  // 'bottom bottom'
+          // markers: true,
+          anticipatePin: 1,
+        }
+      });
+      whyTL
+      .from('#why1', {
+        autoAlpha: 0,
+        opacity: 0,
+        duration: 0.75,
+        ease: 'power2.in'
+      })
+      .from('#why2', {
+        autoAlpha: 0,
+        opacity: 0,
+        duration: 0.75,
+        ease: 'power2.in'
+
+      })
+      .from('#why3', {
+        autoAlpha: 0,
+        opacity: 0,
+        duration: 0.75,
+        ease: 'power2.in'
+      });
 
   } // call init when page loads
 

@@ -1,7 +1,5 @@
 html {
     scroll-behavior: smooth !important;
-    /* font-family: 'Great Vibes', cursive;
-    font-family: 'Open Sans', sans-serif; */
   }
 
   body {
@@ -9,19 +7,13 @@ html {
     background-color: black;
   }
 
-  .icon {
+  /* .icon {
     background: url('../images/Artboard\ 1.svg');
     background-color: antiquewhite;
     height: 20px;
     width: 20px;
     display: inline-flex;
-  }
-
-  .layout-icon {
-    width: 60%;
-    background-color:antiquewhite;
-    border-radius: 50%;
-  }
+  } */
 
   .btn {
     color: inherit;
@@ -53,7 +45,6 @@ html {
     bottom: 0;
     left: 0;
     z-index: 5;
-    /* background-image: url(.svg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -141,10 +132,6 @@ html {
     font-size: xx-large;
   }
 
-  /* .reasons-content .icon {
-    color: inherit;
-  } */
-
   .synopsis-content-antq {
     color: antiquewhite;
   }
@@ -198,6 +185,32 @@ html {
   background-position: center;
 }
 
+.layout-image {
+  background-color: antiquewhite;
+  border-radius: 50%;
+  height: 50vh;
+  width: 100%;
+  animation: pulse 5s 5s ease-in-out infinite;
+}
+
+.layout-icon {
+  width: 50%;
+  background-color:antiquewhite;
+  border-radius: 50%;
+}
+
+.layout-icon:hover {
+  animation: pulse 3s 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+#audience-img {
+  background-image: url('../images/audience-figures.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
   #intro {
     position: relative;
     height: 100vh; 
@@ -205,10 +218,6 @@ html {
     font-family: 'Dancing Script', cursive;    
     font-weight: bolder;
   }
-
-  /* #play {
-    background: linear-gradient(180deg, rgb(65, 64, 64), rgb(34, 32, 32));
-  } */
 
   #house-logo {
     height: 65vh;
@@ -230,7 +239,6 @@ html {
   }
 
   #links {
-    /* background-color: rgb(8, 8, 8); */
     background-color: black;
     color: antiquewhite;
     padding-bottom: 8%;
@@ -249,12 +257,6 @@ html {
   .media:hover {
     color: #f3d128fa;
   }
-
-  /* #friend {
-    z-index: 15;
-    overflow: hidden;
-    // parachute section duplicate
-  } */
   
   @keyframes slideUp {
     to {
