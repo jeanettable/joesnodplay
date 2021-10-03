@@ -151,7 +151,7 @@
       scrollTrigger: {
         trigger: '.intro',
         start: 'top top', //when top is at top of vp
-        end: '+=5000',  // 'bottom bottom'
+        end: '+=5000',  // adds time for scroll scrub pacing
         scrub: 0.05,
         // markers: true,
         anticipatePin: 1,

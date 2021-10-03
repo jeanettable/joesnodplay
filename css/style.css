@@ -211,13 +211,20 @@ html {
   background-position: center;
 }
 
-  #intro {
-    position: relative;
-    height: 100vh; 
-    color:white;
-    font-family: 'Dancing Script', cursive;    
-    font-weight: bolder;
-  }
+#copyright {
+  color: darkgrey;
+  font-size:x-small;
+  display: flex;
+  justify-content: center;
+}
+
+#intro {
+  position: relative;
+  height: 100vh; 
+  color:white;
+  font-family: 'Dancing Script', cursive;    
+  font-weight: bolder;
+}
 
   #house-logo {
     height: 65vh;
