@@ -151,7 +151,7 @@
       scrollTrigger: {
         trigger: '.intro',
         start: 'top top', //when top is at top of vp
-        end: '+=100%',  // 'bottom bottom'
+        end: '+=5000',  // 'bottom bottom'
         scrub: 0.05,
         // markers: true,
         anticipatePin: 1,
@@ -163,40 +163,35 @@
       .from('.intro', {duration: '100%' }, 0.5 )
       .from('#character1', {
         autoAlpha: 0,
-        duration: 3,
+        duration: 1,
         opacity: 0,
         ease: 'linear',
-      }, 2)
-      .from('#character2', {
-        duration: 3,
-        delay: 3,
-        opacity: 0,
-        ease: 'linear',
-      }, 4)
+      }, '+=1')
       .to('#character1', {
-        duration: 2,
-        delay: 6,
-        opacity: 0,
-        ease: 'linear'
-      })
-      .to('#character2', {
-        duration: 2,
-        delay: 7,
-        opacity: 0,
-        ease: 'linear'
-      })
-      .from('#truthy', {
         duration: 3,
-        delay: 8,
+        opacity: 0,
+        ease: 'linear'
+      }, '+=3')
+      .from('#character2', {
+        duration: 1,
         opacity: 0,
         ease: 'linear',
-      })
+      }, '+=1')
+      .to('#character2', {
+        duration: 3,
+        opacity: 0,
+        ease: 'linear'
+      }, '+=3')
+      .from('#truthy', {
+        duration: 2,
+        opacity: 0,
+        ease: 'power2.in',
+      }, '+=1')
       .to('#truthy', {
-        duration: 4,
-        delay: 10,
+        duration: 3,
         opacity: 0, 
         ease: 'linear',
-      });
+      }, '+=3');
   
       // audience tween ease in:
       // const audienceTL = gsap.timeline({
