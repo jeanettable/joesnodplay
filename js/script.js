@@ -135,19 +135,12 @@
   [x] make those two disappear .to tweens
   [x] ^ AS #truthy animates/fades in
   [x] unpin section to move onto the next play section
-  [ ] attempt simultaneous zoom effect on image (in timeline?)
+  [x] attempt simultaneous zoom effect on image (in timeline?)
   */
 
-    // const imgZoomOut = 
-    // TweenMax.fromTo('.intro', '100%', 
-    // { scale: 5 }, 
-    // { scale: 1,
-    //   ease: ExpoScaleEase.config(5, 1, Power2.easeInOut),
-    // });
-
-    // parallax effect within ScrollTrigger:
+    // pin-zoom effect within ScrollTrigger:
     const introTL = gsap.timeline({
-      ease: 'none',
+      defaults: {ease: 'none'},
       scrollTrigger: {
         trigger: '.intro',
         start: 'top top', //when top is at top of vp
@@ -191,7 +184,12 @@
         duration: 3,
         opacity: 0, 
         ease: 'linear',
-      }, '+=3');
+      }, '+=3')
+      .to('#intro .background', {
+        scale: 2.5,
+        duration: introTL.duration(),
+        ease: 'power1.inOut'
+      }, 0);
   
       // audience tween ease in:
       // const audienceTL = gsap.timeline({
